@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happiest Birthday Bava ❤️ | A Private Love Story</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="A private, dreamy, romantic birthday experience created with all my love for Bava.">
+  <meta name="theme-color" content="#fce4ec">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Ambient Particle Canvas for Floating Butterflies, Hearts, Sparkles -->
+  <canvas id="ambient-canvas"></canvas>
+  
+  <!-- Background Glow Orbs -->
+  <div class="ambient-glow orb-1"></div>
+  <div class="ambient-glow orb-2"></div>
+  <div class="ambient-glow orb-3"></div>
+
+  <!-- Audio Element for Journal Music -->
+  <audio id="journal-audio" src="Special/love.mpeg" preload="auto"></audio>
+  <!-- Audio Element for Final Birthday BGM (Drop Special/birthday.mp3 or Special/birthday.mpeg here) -->
+  <audio id="birthday-bgm" src="Special/birthday.mp3" preload="auto"></audio>
+
+  <!-- MAIN APP CONTAINER -->
+  <main id="app-container">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1 — INTRO -->
+    <!-- ========================================== -->
+    <section id="section-intro" class="flow-section active">
+      <div class="intro-content glass-card fade-in">
+        <div class="sparkle-badge">✨ Just For You ✨</div>
+        <h1 class="cursive-heading hero-title">Happiest Birthday Bava ❤️</h1>
+        <p class="intro-subtext">I made a little something for you...</p>
+        
+        <button id="btn-open-surprise" class="romantic-btn ripple-btn" aria-label="Open Your Surprise">
+          <span class="btn-heart">♡</span> Open Your Surprise <span class="btn-heart">♡</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2 — LARGE FLOATING ENVELOPE -->
+    <!-- ========================================== -->
+    <section id="section-envelope" class="flow-section hidden">
+      <div class="envelope-wrapper">
+        <div class="envelope-hint">Tap the envelope to open 💌</div>
+        
+        <!-- Large Floating Envelope Component -->
+        <div id="romantic-envelope" class="envelope-container float-anim" tabIndex="0" role="button" aria-label="Open Love Envelope">
+          <!-- Back Flap -->
+          <div class="envelope-back"></div>
+          
+          <!-- Letter Card sliding inside -->
+          <div class="envelope-letter" id="envelope-letter-preview">
+            <div class="letter-preview-content">
+              <span class="preview-heart">❤️</span>
+              <p class="preview-text">My Dearest Bava...</p>
+            </div>
+          </div>
+          
+          <!-- Front Pocket Left & Right -->
+          <div class="envelope-pocket"></div>
+          
+          <!-- Top Fold Flap -->
+          <div class="envelope-top-flap"></div>
+          
+          <!-- Wax Seal -->
+          <div class="envelope-seal" id="envelope-seal">
+            <div class="seal-inner">
+              <span class="seal-heart">❤️</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="envelope-subtext">Something from my heart, just for you... 💌</p>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3 — SLOW HANDWRITTEN LOVE LETTER -->
+    <!-- ========================================== -->
+    <section id="section-letter" class="flow-section hidden">
+      <div class="letter-container">
+        <div class="letter-paper glass-paper" id="letter-paper-box">
+          <div class="paper-watermark">🦋</div>
+          <div class="letter-header">
+            <span class="letter-date">For Bava, With Love</span>
+            <div class="letter-divider"></div>
+          </div>
+          
+          <!-- Handwritten Message Container -->
+          <div id="letter-text-body" class="handwritten-body cursive-text">
+            <!-- Dynamically animated line by line -->
+          </div>
+
+          <div id="letter-signature-container" class="letter-signature hidden cursive-text">
+            <p>— With all my love ❤️</p>
+          </div>
+
+          <!-- Proceed Button (Appears after typewriter completes) -->
+          <div id="letter-btn-container" class="letter-action hidden">
+            <button id="btn-turn-page" class="romantic-btn page-btn">
+              Turn the Page <span class="arrow-icon">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4 — OUR LITTLE JOURNAL -->
+    <!-- ========================================== -->
+    <section id="section-journal" class="flow-section hidden">
+      <div class="journal-wrapper">
+        <h2 class="journal-title cursive-heading">Our Little Journal 🦋</h2>
+        
+        <!-- Journal Scrapbook Frame -->
+        <div class="scrapbook-card" id="scrapbook-card">
+          <!-- Tape accents on corners -->
+          <div class="card-tape tape-tl"></div>
+          <div class="card-tape tape-tr"></div>
+          
+          <!-- Photo Stage with Adaptable Photo Mat Frame -->
+          <div class="journal-photo-stage">
+            <div class="journal-photo-mat">
+              <img id="journal-photo" src="Mine/1.jpeg" alt="Romantic Memory with Bava" class="journal-img">
+            </div>
+            <div class="photo-overlay-sparkles">✨</div>
+          </div>
+
+          <!-- Quote Section -->
+          <div class="journal-quote-box">
+            <p id="journal-quote" class="journal-quote-text cursive-text">
+              "From the very first moment, you brought a warmth to my life I never knew I was missing. ❤️"
+            </p>
+          </div>
+
+          <!-- Small Romantic Details Row -->
+          <div class="journal-decor-row">
+            <span class="decor-heart">♥</span>
+            <span class="decor-butterfly">🦋</span>
+            <span class="decor-sparkle">✨</span>
+          </div>
+
+          <!-- Progress Dots & Timeline Indicator -->
+          <div class="journal-footer">
+            <div class="journal-progress-bar">
+              <div id="journal-progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="journal-indicators" id="journal-indicators">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5 — SMALL THREE-TAP HEART -->
+    <!-- ========================================== -->
+    <section id="section-heart-lock" class="flow-section hidden">
+      <div class="heart-lock-content glass-card">
+        <h2 class="heart-lock-heading cursive-heading">There's one more little surprise... ❤️</h2>
+        <p class="heart-lock-subtext">Tap the heart three times.</p>
+        
+        <!-- Small Heart Container with Large Touch Hitbox -->
+        <div class="heart-tap-hitbox" id="heart-tap-target" role="button" aria-label="Tap Heart Three Times">
+          <div class="small-heart-icon" id="small-heart-node">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heart-grad)"/>
+              <defs>
+                <linearGradient id="heart-grad" x1="2" y1="3" x2="22" y2="21.35" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#f48fb1"/>
+                  <stop offset="1" stop-color="#e91e63"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <!-- Pulse rings around heart -->
+          <div class="heart-ring ring-1"></div>
+          <div class="heart-ring ring-2"></div>
+        </div>
+
+        <!-- Tap Progress counter indicators -->
+        <div class="tap-counter-dots" id="tap-counter">
+          <span class="tap-dot dot-1"></span>
+          <span class="tap-dot dot-2"></span>
+          <span class="tap-dot dot-3"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6 — PASSWORD LOCK (CODE: 2328) -->
+    <!-- ========================================== -->
+    <section id="section-password" class="flow-section hidden">
+      <div class="password-card glass-card">
+        <div class="lock-header">
+          <span class="lock-icon">🔐</span>
+          <h2 class="cursive-heading">One last secret...</h2>
+          <p class="password-subtext">Enter the little code to unlock it.</p>
+        </div>
+
+        <form id="password-form" onsubmit="return false;">
+          <div class="pin-inputs-container" id="pin-container">
+            <input type="password" maxlength="1" class="pin-digit" inputmode="numeric" pattern="[0-9]*" autocomplete="off" id="pin-1" aria-label="PIN digit 1">
+            <input type="password" maxlength="1" class="pin-digit" inputmode="numeric" pattern="[0-9]*" autocomplete="off" id="pin-2" aria-label="PIN digit 2">
+            <input type="password" maxlength="1" class="pin-digit" inputmode="numeric" pattern="[0-9]*" autocomplete="off" id="pin-3" aria-label="PIN digit 3">
+            <input type="password" maxlength="1" class="pin-digit" inputmode="numeric" pattern="[0-9]*" autocomplete="off" id="pin-4" aria-label="PIN digit 4">
+          </div>
+          
+          <p id="password-feedback" class="password-feedback-msg"></p>
+          
+          <button type="submit" id="btn-unlock" class="romantic-btn unlock-btn">
+            Unlock My Heart ✨
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 7 — SPECIAL VIDEO -->
+    <!-- ========================================== -->
+    <section id="section-video" class="flow-section hidden">
+      <div class="video-container-wrapper">
+        <h2 class="cursive-heading video-heading">You found it... ❤️</h2>
+        
+        <div class="video-frame-card">
+          <div class="video-inner-glow"></div>
+          <video id="special-video" src="Special/video.mp4" controls playsinline preload="metadata">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="video-actions">
+          <button id="btn-to-final" class="romantic-btn final-proceed-btn">
+            A Final Wish For You ✨
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 8 — FINAL BIRTHDAY CELEBRATION SEQUENCE -->
+    <!-- ========================================== -->
+    <section id="section-final" class="flow-section hidden">
+      
+      <!-- STEP 1: "Are you ready? 👀❤️" -->
+      <div id="final-step-ready" class="final-step-container glass-card">
+        <h1 class="cursive-heading ready-heading">Are you ready? 👀❤️</h1>
+        <p class="ready-subtext">Something magical is about to happen...</p>
+      </div>
+
+      <!-- STEP 2 to 6: Cake Reveal, Candle Blow, Make a Wish, BGM & Final Reveal -->
+      <div id="final-step-celebration" class="final-step-container glass-card hidden">
+        
+        <!-- Step 4 Text: "Make a Wish ✨" -->
+        <div id="wish-text-wrapper" class="wish-wrapper hidden">
+          <h2 class="cursive-heading wish-title">Make a Wish ✨</h2>
+        </div>
+
+        <!-- Step 5/6 Text: "Once again..." -->
+        <div id="once-again-wrapper" class="once-again-wrapper hidden">
+          <p class="cursive-heading once-again-text">Once again...</p>
+        </div>
+
+        <!-- Step 2/3: Elegant Birthday Cake Component -->
+        <div id="cake-wrapper" class="cake-container">
+          <svg class="cake-svg" viewBox="0 0 200 220" width="190" height="210" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cake-tier-base" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff8fa" />
+                <stop offset="50%" stop-color="#fde4eb" />
+                <stop offset="100%" stop-color="#f8bbd0" />
+              </linearGradient>
+
+              <linearGradient id="cake-frosting" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f48fb1" />
+                <stop offset="100%" stop-color="#e91e63" />
+              </linearGradient>
+
+              <linearGradient id="flame-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#ff9800" />
+                <stop offset="60%" stop-color="#ffeb3b" />
+                <stop offset="100%" stop-color="#ffffff" />
+              </linearGradient>
+
+              <radialGradient id="flame-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(255, 235, 59, 0.85)" />
+                <stop offset="50%" stop-color="rgba(255, 152, 0, 0.45)" />
+                <stop offset="100%" stop-color="rgba(255, 152, 0, 0)" />
+              </radialGradient>
+            </defs>
+
+            <!-- Cake Stand Plate -->
+            <ellipse cx="100" cy="205" rx="85" ry="12" fill="#e8b4c0" opacity="0.6"/>
+            <ellipse cx="100" cy="202" rx="80" ry="10" fill="#ffffff" stroke="#f48fb1" stroke-width="1.5"/>
+
+            <!-- Bottom Tier -->
+            <rect x="30" y="140" width="140" height="58" rx="10" fill="url(#cake-tier-base)" stroke="#e8b4c0" stroke-width="1"/>
+            <path d="M 30 140 Q 45 156 60 140 Q 75 160 90 140 Q 105 158 120 140 Q 135 162 150 140 Q 160 154 170 140 L 170 140 L 30 140 Z" fill="url(#cake-frosting)" opacity="0.85"/>
+            <ellipse cx="100" cy="140" rx="70" ry="8" fill="#fff5f7"/>
+
+            <!-- Top Tier -->
+            <rect x="55" y="90" width="90" height="50" rx="8" fill="url(#cake-tier-base)" stroke="#e8b4c0" stroke-width="1"/>
+            <path d="M 55 90 Q 70 106 85 90 Q 100 108 115 90 Q 130 105 145 90 L 145 90 L 55 90 Z" fill="url(#cake-frosting)" opacity="0.9"/>
+            <ellipse cx="100" cy="90" rx="45" ry="6" fill="#ffffff"/>
+
+            <!-- Decorative Pearls -->
+            <circle cx="70" cy="120" r="3" fill="#e91e63" opacity="0.7"/>
+            <circle cx="100" cy="123" r="3.5" fill="#e91e63" opacity="0.8"/>
+            <circle cx="130" cy="120" r="3" fill="#e91e63" opacity="0.7"/>
+
+            <!-- Candle Stick -->
+            <rect x="96" y="52" width="8" height="38" rx="3" fill="#f8bbd0" stroke="#d94f70" stroke-width="1"/>
+            <line x1="97" y1="58" x2="103" y2="62" stroke="#ffffff" stroke-width="2"/>
+            <line x1="97" y1="70" x2="103" y2="74" stroke="#ffffff" stroke-width="2"/>
+
+            <!-- Candle Wick -->
+            <line x1="100" y1="52" x2="100" y2="45" stroke="#4a2e35" stroke-width="1.5" stroke-linecap="round"/>
+
+            <!-- Candle Flame Aura -->
+            <circle id="flame-aura" cx="100" cy="32" r="24" fill="url(#flame-glow)" class="flame-glowing"/>
+
+            <!-- Candle Flame -->
+            <path id="candle-flame" class="flame-active" d="M 100 45 Q 92 35 100 22 Q 108 35 100 45 Z" fill="url(#flame-grad)"/>
+
+            <!-- Smoke Effect (Appears when flame goes out) -->
+            <g id="candle-smoke" class="smoke-hidden">
+              <path class="smoke-line line-1" d="M 100 44 Q 95 32 102 20 T 96 6" stroke="rgba(180, 160, 170, 0.65)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path class="smoke-line line-2" d="M 100 44 Q 104 30 97 18 T 103 4" stroke="rgba(216, 167, 177, 0.45)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Step 6: Final Main Reveal Card -->
+        <div id="final-message-box" class="final-message-box hidden">
+          <h1 class="cursive-heading final-title">Happy Birthday, Bava ❤️✨</h1>
+          
+          <p class="final-message-text">
+            Here's to you, to us, and to all the beautiful memories still waiting for us.
+          </p>
+
+          <div class="final-hearts-row">
+            <span>🌸</span><span>🦋</span><span>❤️</span><span>✨</span><span>🌸</span>
+          </div>
+
+          <button id="btn-replay" class="romantic-btn replay-btn">
+            ♡ Relive Our Story ♡
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Main JavaScript File -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
